@@ -24,20 +24,10 @@ class Neural:
 
         self.who += self.lr * np.dot((output_errors * final_outputs * (1 - final_outputs)), np.transpose(hidden_outputs))
         self.wih += self.lr * np.dot((hidden_errors * hidden_outputs * (1 - hidden_outputs)), np.transpose(inputs))
-        # train_input = np.array(train_input, ndmin=2).T
-        # target = np.array(target, ndmin=2).T
-        # hidden = self.act_func(self.wih.dot(train_input)).T
-        # output = np.array(self.act_func(self.who.dot(hidden.T)), ndmin=2)
-        # output_err = np.array(target - output, ndmin=2)
-        # hidden_err = self.who.T.dot(output_err).T
-        # self.who -= self.lr * output_err * output * (1 - output).dot(hidden_err)
-        # self.wih -= self.lr * (hidden_err * hidden * (1 - hidden)).T.dot(train_input.T)
 
     def query(self, input):
         hidden = self.act_func(self.wih.dot(input))
         return self.act_func(self.who.dot(hidden))
-        # answer = list(self.act_func(self.who.dot(hidden)))
-        # return answer.index(max((answer)))
 
     def saveWeights(self):
         weights = open("weights.txt", 'w')
