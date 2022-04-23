@@ -11,3 +11,5 @@ Print in terminal:
 - **python main.py perceptron** - to run perceptron model
 - **python main.py lenet** - to run LeNet model
 
+![demo](demo.png)
+
