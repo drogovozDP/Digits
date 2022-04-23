@@ -1,11 +1,13 @@
 # Digits
 Application just for fun. You can draw any digit and Neural network will try to recognize it
 
-## How to run
-Just run file **main.py**
+## Setup
+First you need to create virtual environment with command **python -m venv venv_name**.
 
-## Different Neural Networks
-In this project we have several models. Unfortunately, there is no API for quick model change, but there will be soon. 
-In this repo we have:
-- Fully connected created in pure numpy 
-- Convolution created in Keras
+Then activate your venv and install requirements with command **pip install -r requirements.txt**.
+
+## Run
+Print in terminal:
+- **python main.py perceptron** - to run perceptron model
+- **python main.py lenet** - to run LeNet model
+
