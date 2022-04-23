@@ -7,12 +7,12 @@ train_X = np.asfarray(train_X).astype(float)
 test_X = np.asfarray(test_X).astype(float)
 
 neural = Neural(784, 100, 10, .001)
-neural.loadWeights()
+neural.loadWeights('./models/perceptron/weights.txt')
 
 right_count = 0
 test_count = len(test_Y)
 for i in range(test_count):
-    a = neural.query(test_X[i].reshape(784))
+    a = neural.predict(test_X[i].reshape(784))
     if list(a).index(max(abs(a))) == test_Y[i]:
         right_count += 1
 

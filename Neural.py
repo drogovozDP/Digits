@@ -25,7 +25,8 @@ class Neural:
         self.who += self.lr * np.dot((output_errors * final_outputs * (1 - final_outputs)), np.transpose(hidden_outputs))
         self.wih += self.lr * np.dot((hidden_errors * hidden_outputs * (1 - hidden_outputs)), np.transpose(inputs))
 
-    def query(self, input):
+    def predict(self, input):
+        input = input.reshape(784)
         hidden = self.act_func(self.wih.dot(input))
         return self.act_func(self.who.dot(hidden))
 
@@ -45,8 +46,16 @@ class Neural:
         weights.write(line)
         weights.close()
 
-    def loadWeights(self):
-        weights = open("weights.txt", "r")
+    def loadWeights(self, path):
+        weights = open(path, "r")
         self.wih = np.reshape(np.asfarray(weights.readline().split(',')), (100, 784))
         self.who = np.reshape(np.asfarray(weights.readline().split(',')), (10, 100))
         weights.close()
+
+
+class Lenet:
+    def __init__(self, model):
+        self.model = model
+
+    def predict(self, x):
+        return self.model.predict(np.array(x, ndmin=4))[0]

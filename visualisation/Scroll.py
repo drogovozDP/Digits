@@ -1,5 +1,6 @@
 import pygame
 
+
 class Scroll:
     def __init__(self, x, y, width, height, digit, percentText):
         self.x = x

@@ -1,6 +1,6 @@
 import pygame
-from Scroll import Scroll
-from Buttons import*
+from visualisation.Scroll import Scroll
+from visualisation.Buttons import*
 
 class Panel:
     def __init__(self, x, y, width, height, paint):
@@ -23,12 +23,9 @@ class Panel:
             self.numbers.append(Scroll(self.x + 50, 20 + 25 * i, self.width / 2, 25, digit, percentText))
         word = self.renderer.render("Clear", True, (234, 54, 123))
         self.buttons.append(DeleteBtn(self.x + (self.width - 100) / 2, 300, 100, 50, word, self))
-        print(self.width)
-        print(self.buttons[-1].width)
 
     def showNumbers(self, numbers):
-        numbers = numbers[0]
-        # print(f"Numbers: {numbers}")
+        numbers = numbers
         for i in range(len(self.numbers)):
             self.numbers[i].percent = numbers[i]
             self.numbers[i].percentText = self.getText(round(numbers[i] * 100, 2))

@@ -1,8 +1,9 @@
-from Cell import Cell
-from Panel import Panel
+from visualisation.Cell import Cell
+from visualisation.Panel import Panel
 import numpy as np
 
 
+# class for statistic visualisation
 class Paint:
     def __init__(self, screen, width, height):
         self.screen = screen
@@ -38,11 +39,9 @@ class Paint:
                 pic[i][j] = self.canvas[i][j].getValue()
         new_pic = pic
         new_pic = new_pic[:, :, np.newaxis]
-        # return pic.reshape(784)
         return new_pic
 
     def statistic(self, numbers):
-        # print(list(numbers).index(max(numbers)))
         self.panel.showNumbers(numbers)
 
     def draw(self):
