@@ -2,6 +2,7 @@ from Cell import Cell
 from Panel import Panel
 import numpy as np
 
+
 class Paint:
     def __init__(self, screen, width, height):
         self.screen = screen
