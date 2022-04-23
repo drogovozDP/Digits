@@ -41,7 +41,6 @@ painting, eraser = False, False
 lenet = model_from_json(open('LeNetKeras.json').read())
 lenet.load_weights('LeNetKeras.h5')
 
-print(paint.getPicture())
 while run:
     clock.tick(FPS)
 
